@@ -1,0 +1,13 @@
+demo,12,demo,demo,student,2023-08-01,06:35:34
+jerry,18,j3rry,j3rry001,admin,2023-08-01,06:14:02
+naruto,33,naruto,naruto,student,2023-08-01,06:47:27
+shadow,17,shadow,shadow,student,2023-08-01,10:49:28
+bhav,20,bhavesh,1234,manager,2023-08-01,10:54:17
+kiba,19,kiba,kiba,manager,2023-08-01,23:05:02
+daemon,33,daemon,daemon,manager,2023-08-02,01:04:10
+kakashi,35,kakashi,kakashi,manager,2023-08-02,01:05:26
+willy,15,willy,willy,manager,2023-08-02,02:05:17
+ell,15,ell,ell,student,2023-08-02,02:06:00
+choza,44,choza,choza,student,2023-08-02,02:36:23
+example,22,exp,exp,student,2023-08-02,03:04:45
+gimmy,33,gimmy,gimmy,manager,2023-08-02,06:14:42
