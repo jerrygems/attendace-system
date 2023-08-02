@@ -445,10 +445,12 @@ def update():
 def update_control():
     if userType in ["admin"]:
         update()
+    else:
+        print("managers and students are not allowed to user UPDATE operation")
 
 def administrate():
     if userType in ["admin","manager"]:
-        print(f"{purple}commands available:\n\t1. create\n\t2. view\n\t3. update\n\t4. delete{nc}")
+        print(f"{purple}commands available:\n\t1. create\n\t2. view\n\t3. update\n\t{nc}")
         inp = input(f"{lightBLUE}admin@attendance_system==>{nc}")
         if inp=="create":
             creator()
