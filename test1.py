@@ -461,6 +461,27 @@ def administrate():
     else:
         print(f"{boldRED}Noone Else can be here left admin and manager.\nBy The Way are you a hacker Who is tryna hack me hu...!")
 
+def find_absentees(file_path, date):
+    absentees = []
+    with open("users.txt", "r") as users_file:
+        users_data = users_file.readlines()
+    with open(file_path, "r") as file:
+        attendance_data = file.readlines()
+    for user_line in users_data:
+        user_info = user_line.strip().split(",")
+        if len(user_info) != 7:
+            continue
+        name, age, username, password, userType, user_date, user_time = user_info
+        if userType == "student":
+            present = False
+            for attendance_line in attendance_data:
+                att_date, time, att_username, status = attendance_line.strip().split(",")
+                if att_username == username and att_date == date and status == "Present":
+                    present = True
+                    break
+            if not present:
+                absentees.append(username)
+    return absentees
 
     
 # Main loop
@@ -482,7 +503,26 @@ while True:
         logout()
     elif inp == "status":
         print(f"userType={userType},userLogin={login}\n{lightGRN}Login User Info: \n{userInfo}{nc}")
-    
+    elif inp == "absentees":
+        print("Select a file to check attendance from:\n1. Students Attendance\n2. Managers Attendance\n3. Admins Attendance")
+        choice = input("Enter the number of your choice: ")
+        if choice == "1":
+            file = students_attendance
+        elif choice == "2":
+            file = managers_attendance
+        elif choice == "3":
+            file = admins_attendance
+        else:
+            print("Invalid choice. Please try again.")
+            continue
+        date_to_check = input("Enter the date to check for absentees (YYYY-MM-DD): ")
+        absentees = find_absentees(file, date_to_check)
+        if not absentees:
+            print("No absentees found for the given date.")
+        else:
+            print("Absentees on", date_to_check, ":")
+            for username in absentees:
+                print(username)
     elif inp == "exit":
         break
     elif inp == "clear":
